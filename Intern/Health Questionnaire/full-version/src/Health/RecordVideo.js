@@ -87,6 +87,7 @@ const RecordVideo = (props) => {
         if(title.length>0)
         {
             props.setTitle(title);
+            props.setAudio(false)
             handleUrl();
             setModal(false);
         }

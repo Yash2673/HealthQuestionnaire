@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Col, Row, Card, CardBody } from 'reactstrap';
+import ListAudioCard from './ListAudioCard';
 import ListVideoCard from './ListVideoCard';
 
 class ListVideos extends Component{
@@ -40,12 +41,11 @@ class ListVideos extends Component{
     render(){
         return(
             <div>
-                {this.state.files.length>0 ?  this.state.files.map((file) => {
-                    return(
+                {this.state.files.map((file) => (
+                    file.isAudio == true ? 
+                        <ListAudioCard del={this.handleDelete} file={file} /> :
                         <ListVideoCard del={this.handleDelete} file={file} />
-                    )
-                }) : null
-                }
+                ))}
                 <Card style={{width:'100%'}} className="Documents-Card">
                     <CardBody>
                         <Row>

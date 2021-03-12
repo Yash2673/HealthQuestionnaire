@@ -15,12 +15,13 @@ import {
 import "./index.css"
 import * as Icon from "react-feather"
 
-class ListVideoCard extends Component{
+class ListAudioCard extends Component{
     state = {
         modal:false
     }
 
     toggleModal = () => {
+        console.log(1);
         this.setState(prevState => ({
           modal: !prevState.modal
         }))
@@ -37,7 +38,7 @@ class ListVideoCard extends Component{
 
     render(){
         const file = this.props.file;
-        console.log("Yes");
+
         return(
             <div>
                 <Card>
@@ -52,15 +53,7 @@ class ListVideoCard extends Component{
                             <Icon.Edit onClick={this.toggleModal} size={15} />
                         </Col>
                     </Row>
-                    <video 
-                        height="200px"
-                        width="250px    "
-                        controls 
-                        autoPlay
-                        currentTime={11.3}
-                        src={file.url} 
-                        className="video-player"
-                    />
+                    <audio style={{width:'95%'}} className="video-player" src={file.url} controls />
                     
                     <CardBody className="d-flex justify-content-center">
                         <h5>{file.title}</h5>
@@ -92,4 +85,4 @@ class ListVideoCard extends Component{
     }
 }
 
-export default ListVideoCard
+export default ListAudioCard

@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import { Col, Row, Card } from 'reactstrap';
 import ListVideos from './ListVideos';
 import RecordVideo from './RecordVideo';
+import VoiceDisplay from './VoiceDisplay';
 
 class Health extends Component{
     state = {
         url : "",
-        title:'1'
+        title:'1',
+        isAudio:false
     }
 
     handleUrl = (url) => {
@@ -21,8 +23,14 @@ class Health extends Component{
         })
     }
 
+    handleAudio = (audio) => {
+        this.setState({
+            isAudio:audio
+        })
+    }
+
     render(){
-        console.log(this.state);
+        // console.log(this.state);
         return(
             <Card>
                 <Row>
@@ -56,7 +64,9 @@ class Health extends Component{
                             </Col>
 
                             <Col md="7" className="mb-2">
-                                <RecordVideo setUrl={this.handleUrl} setTitle={this.handleTitle} />
+                                <RecordVideo className="mb-2" setUrl={this.handleUrl} setTitle={this.handleTitle} setAudio={this.handleAudio}/>
+
+                                <VoiceDisplay className="mb-2" setUrl={this.handleUrl} setTitle={this.handleTitle} setAudio={this.handleAudio}/>
                             </Col>
                         </Row>
                         
