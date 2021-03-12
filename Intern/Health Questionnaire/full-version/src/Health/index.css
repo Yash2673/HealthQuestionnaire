@@ -1,0 +1,7 @@
+.video-player{
+    border: none;
+}
+
+.video-player:focus{
+    outline: none;
+}
